@@ -19,7 +19,7 @@ main PROC
 
 	call userPrompts
 
-	call runAgain
+	;call runAgain
 
 main ENDP
 
