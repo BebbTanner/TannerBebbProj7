@@ -13,6 +13,10 @@ INCLUDE Irvine32.inc
 
 main PROC
 
+	mov edx, OFFSET prompt1
+	call WriteString
+	call Crlf
+
 	call userPrompts
 
 main ENDP
@@ -20,18 +24,18 @@ main ENDP
 
 userPrompts PROC
 
-	mov edx, OFFSET prompt1
-	call WriteString
-	call Crlf
-
 	mov edx, OFFSET choiceX
 	call WriteString
 	call ReadInt
+	mov al, choiceX
 
 	mov edx, OFFSET choiceY
 	call WriteString
 	call ReadInt
+	mov bl, choiceY
 	call Crlf
+
+	;mul ebx, eax
 
 	mov edx, OFFSET Result
 	call WriteString
