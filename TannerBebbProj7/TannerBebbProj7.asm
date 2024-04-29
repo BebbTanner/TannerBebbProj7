@@ -19,9 +19,12 @@ main PROC
 
 	mov edx, OFFSET choiceX
 	call WriteString
-	call Crlf
 	call ReadInt
 
+	mov edx, OFFSET choiceY
+	call WriteString
+	call ReadInt
+	call Crlf
 
 main ENDP
 
