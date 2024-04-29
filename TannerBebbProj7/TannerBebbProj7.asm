@@ -29,17 +29,13 @@ userPrompts PROC
 	mov edx, OFFSET choiceX
 	call WriteString
 	call ReadInt
-	movzx ebx, choiceX
-	;mov [ebx], al
+	mov al, choiceX
 
 	mov edx, OFFSET choiceY
 	call WriteString
 	call ReadInt
-	movzx eax, choiceY
-	;mov [eax], bl
+	mov bl, choiceY
 	call Crlf
-
-	mul ebx
 
 	mov edx, OFFSET Result
 	call WriteString
