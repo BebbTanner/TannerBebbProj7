@@ -35,8 +35,6 @@ userPrompts PROC
 	mov bl, choiceY
 	call Crlf
 
-	;mul ebx, eax
-
 	mov edx, OFFSET Result
 	call WriteString
 	call Crlf
