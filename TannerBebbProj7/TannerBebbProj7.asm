@@ -19,8 +19,6 @@ main PROC
 
 	call userPrompts
 
-	;call runAgain
-
 main ENDP
 
 
@@ -44,10 +42,5 @@ userPrompts PROC
 	ret
 
 userPrompts ENDP
-
-
-runAgain PROC
-
-runAgain ENDP
 
 END main
