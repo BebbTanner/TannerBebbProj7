@@ -16,19 +16,13 @@ INCLUDE Irvine32.inc
 .code
 
 main PROC
-    
-    mov edx, OFFSET prompt1
-    call WriteString
-    call Crlf
 
     mov edx, OFFSET choiceX
     call WriteString
     call ReadInt
-
-    mov edx, OFFSET choiceY
-    call WriteString
-    call ReadInt
-    call Crlf
+    mov intX, eax
+    mov edx, intX
+    call WriteInt
 
     ;call BitwiseMultiply
     ;call DisplayResult
