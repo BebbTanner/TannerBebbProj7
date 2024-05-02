@@ -12,9 +12,22 @@ INCLUDE Irvine32.inc
 .code
 
 main PROC
+    
+    mov edx, OFFSET prompt1
+    call WriteString
+    call Crlf
 
-    call BitwiseMultiply
-    call DisplayResult
+    mov edx, OFFSET choiceX
+    call WriteString
+    call ReadInt
+
+    mov edx, OFFSET choiceY
+    call WriteString
+    call ReadInt
+    call Crlf
+
+    ;call BitwiseMultiply
+    ;call DisplayResult
 
 main ENDP
 
