@@ -17,24 +17,21 @@ INCLUDE Irvine32.inc
 
 main PROC
 
-    ;mov edx, OFFSET prompt1
-    ;call WriteString
-    ;call Crlf
+    mov edx, OFFSET prompt1
+    call WriteString
+    call Crlf
 
     mov edx, OFFSET choiceX
     call WriteString
     call ReadInt
     mov intX, eax
     mov edx, intX
-    ;call WriteInt
-    ;call Crlf
 
-    ;mov edx, OFFSET choiceY
-    ;call WriteString
-    ;call ReadInt
-    ;mov intY, eax
-    ;mov edx, intX
-    ;call WriteInt
+    mov edx, OFFSET choiceY
+    call WriteString
+    call ReadInt
+    mov intY, eax
+    mov ebx, intX
 
     mov ebx, intX
     call BitwiseMultiply
@@ -45,6 +42,7 @@ main ENDP
 
 
 BitwiseMultiply PROC
+
     xor eax, eax           ; Clear eax for accumulation
     mov ecx, 32            ; Set loop counter to 32 (number of bits in unsigned 32-bit integer)
 
