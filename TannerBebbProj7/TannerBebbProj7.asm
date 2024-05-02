@@ -25,17 +25,13 @@ main PROC
     call WriteString
     call ReadInt
     mov intX, eax
-    mov edx, intX
 
     mov edx, OFFSET choiceY
     call WriteString
     call ReadInt
     mov intY, eax
-    mov ebx, intX
 
-    mov ebx, intX
     call BitwiseMultiply
-    mov eax, ebx
     call DisplayResult
 
 main ENDP
@@ -44,6 +40,10 @@ main ENDP
 BitwiseMultiply PROC
 
     xor eax, eax           ; Clear eax for accumulation
+    mov eax, intX
+    mov ebx, intY
+
+    ;xor eax, eax           ; Clear eax for accumulation
     mov ecx, 32            ; Set loop counter to 32 (number of bits in unsigned 32-bit integer)
 
 shift_loop:
@@ -61,6 +61,8 @@ BitwiseMultiply ENDP
 
 
 DisplayResult PROC
+
+    mov edx, ebx
 
     call WriteInt 
     call Crlf
