@@ -13,34 +13,36 @@ INCLUDE Irvine32.inc
 
 main PROC
 
-	mov edx, OFFSET prompt1
-	call WriteString
-	call Crlf
-
-	call userPrompts
+    call BitwiseMultiply
+    call DisplayResult
 
 main ENDP
 
 
-userPrompts PROC
+BitwiseMultiply PROC
+    xor eax, eax           ; Clear eax for accumulation
+    mov ecx, 32            ; Set loop counter to 32 (number of bits in unsigned 32-bit integer)
 
-	mov edx, OFFSET choiceX
-	call WriteString
-	call ReadInt
-	mov al, choiceX
+shift_loop:
+    shl ebx, 1             ; Shift the multiplier left
+    jnc skip_addition      ; Jump if no carry flag set (i.e., if shifted bit was 0)
+    add eax, ecx           ; Add multiplicand to the result if carry flag is set
+skip_addition:
+    dec ecx                ; Decrement loop counter
+    jnz shift_loop         ; Jump if loop counter is not zero
 
-	mov edx, OFFSET choiceY
-	call WriteString
-	call ReadInt
-	mov bl, choiceY
-	call Crlf
+    ret
 
-	mov edx, OFFSET Result
-	call WriteString
-	call Crlf
+BitwiseMultiply ENDP
 
-	ret
 
-userPrompts ENDP
+DisplayResult PROC
+
+    call WriteInt 
+    call Crlf
+
+    ret
+
+DisplayResult ENDP
 
 END main
